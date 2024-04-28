@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact - Mita Site</title>
+    <style>
+        body {
+            background-color: black;
+            color: white; /* Make text color white for visibility */
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Hide overflowing snowflakes */
+            font-family: Arial, sans-serif; /* Improve text appearance */
+            opacity: 1;
+            transition: opacity 0.5s;
+        }
+
+        /* Add red borders to the main elements */
+        nav, main, footer {
+            border: 1px solid rgb(255, 0, 0);
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px; /* Round the edges */
+        }
+
+        /* Style for the snowflakes */
+        .snowflake {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 10px;
+            height: 10px;
+            background: rgb(255, 0, 0);
+            border-radius: 50%;
+            animation: fall linear infinite;
+        }
+
+        /* Animation for the snowflakes */
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+
+        /* Fade-out animation */
+        body.fade-out {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Mita Site</h1>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <h2>Contact</h2>
+        <p>If you have any questions or would like to work with me, please contact me at mitapri8@gmail.com.</p>
+    </main>
+    
+    <footer>
+        <p>Copyright &copy; 2024 RedDev Company</p>
+    </footer>
+    
+    <script>
+        // Create snowflakes
+        for (var i = 0; i < 200; i++) {
+            var snowflake = document.createElement('div');
+            snowflake.className = 'snowflake';
+            snowflake.style.left = Math.random() * window.innerWidth + 'px';
+            snowflake.style.animationDuration = Math.random() * 3 + 2 + 's'; // Random fall duration between 2 and 5 seconds
+            snowflake.style.opacity = Math.random(); // Random opacity
+            snowflake.style.transform = 'scale(' + Math.random() + ')'; // Random size
+            document.body.appendChild(snowflake);
+        }
+
+// Page transition animation
+document.querySelectorAll('a').forEach(function(elem) {
+    elem.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.body.classList.add('fade-out');
+        setTimeout(function() {
+            window.location = elem.href;
+        }, 500); // Removed the trailing comma
+    });
+});
+    </script>
+</body>
+</html>
